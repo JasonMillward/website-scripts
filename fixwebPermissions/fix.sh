@@ -7,7 +7,7 @@
 # web directory and changes the permissions of their respective type.
 #	
 #
-# Version    $Id: 1.0.1, 2012-07-23 09:54:08 CEST $;
+# Version    $Id: 1.0.2, 2012-07-23 13:24:14 CEST $;
 # Author     Jason Millward
 # Copyright  2012 Jason Millward
 #
