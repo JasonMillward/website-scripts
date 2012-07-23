@@ -1,0 +1,7 @@
+# Config files #
+#################
+*.cfg
+
+# Temp files #
+##############
+*.tmp
