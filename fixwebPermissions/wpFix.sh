@@ -20,7 +20,7 @@
 
 WWW_DATA_DIR="/data/www"
 
-$(find $WWW_DATA_DIR -type d -exec ls -d {} \; | grep "\/wp-content$" > listOfwpContent.txt)
+$(find $WWW_DATA_DIR -type d -exec ls -d {} \; | grep "\/wp-content$" > listOfwpContent.tmp)
 
 LINES_ARRAY=( $(cat "listOfwpContent.tmp") )
 
