@@ -1,7 +1,6 @@
 #!/bin/bash
-# Config for fixwebPermissions.sh
 #
-# Copyright (C) 2012    Jason Millward
+# Config for permission fixing scripts
 #
 # Rename paths/tmp file as required
 
