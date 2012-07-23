@@ -5,3 +5,9 @@
 # Temp files #
 ##############
 *.tmp
+
+
+
+# Scripts #
+##########
+bumpVersion.sh
