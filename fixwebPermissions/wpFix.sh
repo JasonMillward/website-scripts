@@ -18,11 +18,14 @@
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
 
-WWW_DATA_DIR="/data/www"
+# Lets include the reqired files
+source $(pwd)/config.cfg
 
-$(find $WWW_DATA_DIR -type d -exec ls -d {} \; | grep "\/wp-content$" > listOfwpContent.tmp)
 
-LINES_ARRAY=( $(cat "listOfwpContent.tmp") )
+
+$(find $WWW_DATA_DIR -type d -exec ls -d {} \; | grep "\/wp-content$" > $TMP_FILE_LIST)
+
+LINES_ARRAY=( $(cat $TMP_FILE_LIST) )
 
 for idx in $(seq 0 $((${#LINES_ARRAY[@]} - 1))); do
     LINE="${LINES_ARRAY[$idx]}"

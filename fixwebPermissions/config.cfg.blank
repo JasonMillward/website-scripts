@@ -1,0 +1,10 @@
+#!/bin/bash
+# Config for fixwebPermissions.sh
+#
+# Copyright (C) 2012    Jason Millward
+#
+# Rename paths/tmp file as required
+
+DIR=$(pwd)
+WWW_DATA_DIR="/data/www"
+TMP_FILE_LIST="$DIR/listOfwpContent.tmp"
