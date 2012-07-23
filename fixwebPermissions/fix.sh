@@ -1,11 +1,10 @@
 #!/bin/bash
 #
-# Wordpress wp-content folder permissions fixer
+# Directory permission fixer
 #
 #
 # This small script trawls through all files and directories in the 
-# web directory and changes the permissions of wp-content folders 
-# to be writable by the apache user.
+# web directory and changes the permissions of their respective type.
 #	
 #
 # Version    $Id: 1.0.1, 2012-07-23 09:54:08 CEST $;
@@ -31,22 +30,9 @@
 # Lets include the reqired files
 source $(pwd)/config.cfg
 
-# Find all wp-content directories in the WWW_DATA_DIR 
-$(find $WWW_DATA_DIR -type d -exec ls -d {} \; | grep "\/wp-content$" > $TMP_FILE_LIST)
+# Find all files
+find $WWW_DATA_DIR -type f -exec chmod 644 {} \;
 
-# Read the lines into an array
-LINES_ARRAY=( $(cat $TMP_FILE_LIST) )
-
-# For each line (Or wp-content directory)
-for idx in $(seq 0 $((${#LINES_ARRAY[@]} - 1))); do
-    # Put the directory into a variable
-    LINE="${LINES_ARRAY[$idx]}"
-    # Tell the user we are fixing $LINE
-    echo "Fixing $LINE"
-    # Change the permissions for wp-content
-    # It needs to be writable by the user and the group but not everyone.
-    chmod 775 $LINE
-done
-
-rm $TMP_FILE_LIST
+# Find all folders
+find $WWW_DATA_DIR -type d -exec chmod 755 {} \;
 # Done
