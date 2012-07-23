@@ -1,0 +1,13 @@
+# Config files #
+#################
+*.cfg
+
+# Temp files #
+##############
+*.tmp
+
+
+
+# Scripts #
+##########
+bumpVersion
