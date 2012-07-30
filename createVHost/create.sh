@@ -28,7 +28,7 @@
 
 # Lets include the reqired files
 source $(pwd)/config.cfg
-source $(pwd)/functions.cfg
+source $(pwd)/functions.sh
 
 # Clear the screen of junk
 clear
@@ -72,7 +72,7 @@ VIRTUALHOST
 ENABLE
 
 # Ask if the website is for wordpress, if so download and extract it
-WORDPRESS
+#WORDPRESS
 
 # Fix up the permissions 
 PERMISSIONS

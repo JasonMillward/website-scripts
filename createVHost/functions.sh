@@ -41,39 +41,13 @@ function WORDPRESS ()
 
 function VIRTUALHOST () 
 {
-	echo "<VirtualHost *:80>"                                        					>  $APACHE_PATH/$DOMAIN
-	echo "        ServerAdmin webmaster@partyc.at"                   					>> $APACHE_PATH/$DOMAIN
-	echo "        ServerName  $DOMAIN"                               					>> $APACHE_PATH/$DOMAIN
-	echo "        ServerAlias *.$DOMAIN"                             					>> $APACHE_PATH/$DOMAIN
-	echo ""                                                          					>> $APACHE_PATH/$DOMAIN
-	echo "        DocumentRoot $WWW_DATA_DIR/$USER/$DOMAIN/htdocs/"  					>> $APACHE_PATH/$DOMAIN
-	echo "        <Directory />"                                     					>> $APACHE_PATH/$DOMAIN
-	echo "                Options FollowSymLinks"                    					>> $APACHE_PATH/$DOMAIN
-	echo "                AllowOverride all"                         					>> $APACHE_PATH/$DOMAIN
-	echo "        </Directory>"                                      					>> $APACHE_PATH/$DOMAIN
-	echo "        <Directory $WWW_DATA_DIR/$USER/$DOMAIN/htdocs/>"   					>> $APACHE_PATH/$DOMAIN
-	echo "                Options Indexes FollowSymLinks MultiViews" 					>> $APACHE_PATH/$DOMAIN
-	echo "                AllowOverride all"                         					>> $APACHE_PATH/$DOMAIN
-	echo "                Order allow,deny"                          					>> $APACHE_PATH/$DOMAIN
-	echo "                allow from all"                            					>> $APACHE_PATH/$DOMAIN
-	echo "        </Directory>"                                      					>> $APACHE_PATH/$DOMAIN
-	echo ""                                                          					>> $APACHE_PATH/$DOMAIN
-	echo "        ScriptAlias /cgi-bin/ /usr/lib/cgi-bin/"           					>> $APACHE_PATH/$DOMAIN
-	echo "        <Directory \"$WWW_DATA_DIR/$USER/$DOMAIN/etc/\">"  					>> $APACHE_PATH/$DOMAIN
-	echo "                AllowOverride None"                        					>> $APACHE_PATH/$DOMAIN
-	echo "                Options +ExecCGI -MultiViews +SymLinksIfOwnerMatch" 			>> $APACHE_PATH/$DOMAIN
-	echo "                Order allow,deny"                                   			>> $APACHE_PATH/$DOMAIN
-	echo "                Allow from all"                                     			>> $APACHE_PATH/$DOMAIN
-	echo "        </Directory>"                                               			>> $APACHE_PATH/$DOMAIN
-	echo ""                                                                   			>> $APACHE_PATH/$DOMAIN
-	echo "        ErrorLog $WWW_DATA_DIR/$USER/$DOMAIN/logs/error.log"       		  	>> $APACHE_PATH/$DOMAIN
-	echo ""                                                                           	>> $APACHE_PATH/$DOMAIN
-	echo "        # Possible values include: debug, info, notice, warn, error, crit," 	>> $APACHE_PATH/$DOMAIN
-	echo "        # alert, emerg."                                                    	>> $APACHE_PATH/$DOMAIN
-	echo "        LogLevel warn"                                                      	>> $APACHE_PATH/$DOMAIN
-	echo ""                                                                           	>> $APACHE_PATH/$DOMAIN
-	echo "        CustomLog $WWW_DATA_DIR/$USER/$DOMAIN/logs/access.log combined"     	>> $APACHE_PATH/$DOMAIN
-	echo "</VirtualHost>"                                                             	>> $APACHE_PATH/$DOMAIN
+    cp $(pwd)/blankVhost $APACHE_PATH/$DOMAIN
+    
+    ESCP_DATA_DIR=${WWW_DATA_DIR//\//\\\/}
+    
+    sed -i "s/WWW_DATA_DIR/$ESCP_DATA_DIR/g" $APACHE_PATH/$DOMAIN
+    sed -i "s/DOMAIN/$DOMAIN/g" $APACHE_PATH/$DOMAIN
+    sed -i "s/USER/$USER/g" $APACHE_PATH/$DOMAIN    
 }
 
 function CREATE() 
