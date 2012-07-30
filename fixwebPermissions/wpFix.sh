@@ -8,7 +8,7 @@
 # to be writable by the apache user.
 #	
 #
-# Version    $Id: 1.0.1, 2012-07-23 09:54:08 CEST $;
+# Version    $Id: 1.1, 2012-07-30 07:54:52 CEST $;
 # Author     Jason Millward
 # Copyright  2012 Jason Millward
 #
