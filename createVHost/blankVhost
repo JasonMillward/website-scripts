@@ -1,0 +1,33 @@
+<VirtualHost *:80>
+        ServerAdmin webmaster@partyc.at
+        ServerName  DOMAIN
+        ServerAlias *.DOMAIN
+
+        DocumentRoot WWW_DATA_DIR/USER/DOMAIN/htdocs/
+        <Directory />
+                Options FollowSymLinks
+                AllowOverride all
+        </Directory>
+        <Directory WWW_DATA_DIR/USER/DOMAIN/htdocs/>
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride all
+                Order allow,deny
+                allow from all
+        </Directory>
+
+        ScriptAlias /cgi-bin/ /usr/lib/cgi-bin/
+        <Directory \WWW_DATA_DIR/USER/DOMAIN/etc/\>
+                AllowOverride None
+                Options +ExecCGI -MultiViews +SymLinksIfOwnerMatch
+                Order allow,deny
+                Allow from all
+        </Directory>
+
+        ErrorLog WWW_DATA_DIR/USER/DOMAIN/logs/error.log
+
+        # Possible values include: debug, info, notice, warn, error, crit,
+        # alert, emerg.
+        LogLevel warn
+
+        CustomLog WWW_DATA_DIR/USER/DOMAIN/logs/access.log combined
+</VirtualHost>

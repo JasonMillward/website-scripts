@@ -1,13 +1,19 @@
 #!/bin/bash
 #
-# Directory permission fixer
+# Virtual Host Creation Kit
 #
-#
-# This small script trawls through all files and directories in the 
-# web directory and changes the permissions of their respective type.
+# This script creates a virtualhost file for apache 
+# It creates the relevent folders under a subdirectory owned by the user specified.
 #	
+# If the user wants wordpress installed (common for me) download and extract it 
+#  into the htdocs directory before fixing the permissions on all of the files.
 #
-# Version    $Id: 1.0.1, 2012-07-23 09:54:08 CEST $;
+#
+# Be sure to fill in the config file before running this script
+#
+#
+#
+# Version    $Id: 1.1, 2012-07-30 07:54:52 CEST $;
 # Author     Jason Millward
 # Copyright  2012 Jason Millward
 #
@@ -26,9 +32,11 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
+
+
 # Lets include the reqired files
 source $(pwd)/config.cfg
-source $(pwd)/functions.cfg
+source $(pwd)/functions.sh
 
 # Clear the screen of junk
 clear
@@ -72,7 +80,7 @@ VIRTUALHOST
 ENABLE
 
 # Ask if the website is for wordpress, if so download and extract it
-WORDPRESS
+#WORDPRESS
 
 # Fix up the permissions 
 PERMISSIONS
