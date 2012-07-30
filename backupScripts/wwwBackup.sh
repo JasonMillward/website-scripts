@@ -30,7 +30,7 @@
 #
 #
 #
-# Version    $Id: 1.0.2, 2012-07-23 13:24:14 CEST $;
+# Version    $Id: 1.1, 2012-07-30 07:54:52 CEST $;
 # Author     Jason Millward
 # Copyright  2012 Jason Millward
 #
