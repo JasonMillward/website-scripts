@@ -52,7 +52,7 @@
 
 
 
-source $(pwd)/config.cfg
+source $(dirname $0)/config.cfg
 
 NOW=`date +%s`;OLD=`stat -c %Z $DIR/$TMP_FILE_LIST`;((DIFF = ($NOW - $OLD)/60 ))
 OLD_IFS=$IFS; IFS=$'\n'
